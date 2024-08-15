@@ -1,6 +1,6 @@
 \documentclass[
-paper=5.5in:8.5in,
-%a5paper,
+%paper=5.5in:8.5in,
+a5paper,
 BCOR=7mm,
 twoside,
 DIV=calc,
@@ -56,12 +56,8 @@ headings=big]{scrbook} % Document font size and paper size
 \newfontfamily\chapterfont{EB Garamond}
 \newfontfamily\lettrinefont{ImperatorPlaque.ttf}
 \renewcommand{\LettrineFontHook}{\fontspec{ImperatorPlaque.ttf}}
-%\input Kramer.fd
-%\newcommand*\initfamily{\usefont{U}{Kramer}{xl}{n}}
-%\newfontfamily\lettrinefont{Kramer}
-%\renewcommand{\LettrineFontHook}{\fontspec{Kramer}}
 \newfontfamily\mytitlefont{AMERIKA.ttf}
-
+\newfontfamily\mychapterfont{EB Garamond}
 
 \makeatletter
 \@ifclasswith{scrbook}{a5paper}
@@ -77,7 +73,7 @@ headings=big]{scrbook} % Document font size and paper size
 \makeatother
 
 \renewcommand{\partname}{Book}
-%\setkomafont{chapter}{\chapterfont\Huge\bfseries}
+\setkomafont{chapter}{\chapterfont\Huge}
 \addtokomafont{disposition}{\normalfont}
 %\setkomafont{part}{\chapterfont\HUGE\bfseries}
 %\addtokomafont{partnumber}{\chapterfont\moderatelyhuge}
@@ -295,19 +291,31 @@ But who shall dwell in these worlds if they be inhabited?\textellipsis Are we or
 \KOMAoptions{headings=openleft}
 \chapter*{Colophon}
 \begin{center}
-EB Garamond is Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-16\textsuperscript{th} century. This digital version reproduces the original design by Claude Garamont closely: the source for the letterforms is a scan of a specimen known as the \enquote{Berner specimen,} which was composed in 1592 by Conrad Berner, the son-in-law of Christian Egenolff and his successor at the Egenolff print office.  \\github.com/georgd/EB-Garamond
+EB Garamond is Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. This digital version reproduces the original design by Claude Garamont closely: the source for the letterforms is a scan of a specimen known as the \enquote{Berner specimen,} which was composed in 1592 by Conrad Berner, the son-in-law of Christian Egenolff and his successor at the Egenolff print office.  \\github.com/georgd/EB-Garamond
+\vfill
+\rule{0.5\textwidth}{.4pt}
 \vfill
 Chapter dropcaps are set in »Imperator Plaque«, by Paul Lloyd.\\moorstation.org/typoasis/designers/lloyd/
 \vfill
+\rule{0.5\textwidth}{.4pt}
+\vfill
 Title page is set in »Amerika«, by Apostrophic Labs.\\moorstation.org/typoasis/designers/lab/
+\vfill
+\rule{0.5\textwidth}{.4pt}
 \vfill
 \textit{The War of the Worlds} was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published in hardback by William Heinemann (in the UK) and Harper \& Bros. (in the US). This edition uses the Project Gutenberg text, available at: gutenberg.org/ebooks/36 
 \vfill
-Illustrations by Brazilian artist Henrique Alvim Corrêa (1876-1910) were comissioned for the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co.
+\rule{0.5\textwidth}{.4pt}
+\vfill
+Illustrations by Brazilian artist Henrique Alvim Corrêa (1876-1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co, in Brussels (Belgium).
+\vfill
+\rule{0.5\textwidth}{.4pt}
 \vfill
 This typeset is dedicated to the public domain under a Creative Commons CC0 1.0 Universal deed: creativecommons.org/publicdomain/zero/1.0/
 \vfill
-Typeset in \LaTeX{}.
+\rule{0.5\textwidth}{.4pt}
+\vfill
+Typeset in \LaTeX{}. Last revised \today.
 \end{center}
 \thispagestyle{empty}
 \end{document}
