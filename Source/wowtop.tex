@@ -1,6 +1,6 @@
 \documentclass[
-%paper=5.5in:8.5in,
-a5paper,
+paper=5.5in:8.5in,
+%a5paper,
 BCOR=7mm,
 twoside,
 DIV=calc,
@@ -43,7 +43,8 @@ headings=big]{scrbook} % Document font size and paper size
 
 \MakeAutoQuote{»}{«}
 \catcode`\—=13
-\protected\def—{\allowbreak\textemdash\allowbreak}
+%\protected\def—{\allowbreak\textemdash\allowbreak}
+\protected\def—{\textemdash}
 \newcommand\longdash{\mbox{---\,}\ignorespaces{}}
 
 \setmainfont{EB Garamond}
@@ -303,11 +304,11 @@ Title page is set in »Amerika«, by Apostrophic Labs.\\moorstation.org/typoasis
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill
-\textit{The War of the Worlds} was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published in hardback by William Heinemann (in the UK) and Harper \& Bros. (in the US). This edition uses the Project Gutenberg text, available at: gutenberg.org/ebooks/36 
+\textit{The War of the Worlds} (Herbert George »H.G.« Wells, 1866\textendash1946) was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published in hardback by William Heinemann (in the UK) and Harper \& Bros. (in the US). 
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill
-Illustrations by Brazilian artist Henrique Alvim Corrêa (1876-1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co, in Brussels (Belgium).
+Illustrations by Brazilian artist Henrique Alvim Corrêa (1876\textendash1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co, in Brussels (Belgium).
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill
