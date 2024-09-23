@@ -1,166 +1,37 @@
 \documentclass[
-paper=5.5in:8.5in,
-%a5paper,
-BCOR=7mm,
-twoside,
-DIV=calc,
-11pt,
-usegeometry,
-chapterprefix,
-headings=big]{scrbook} % Document font size and paper size
+%paper=5.5in:8.5in,
+a5paper,
+]{scrbook} % Document font size and paper size
 
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage[no-math]{fontspec}
-\usepackage[T1]{fontenc} % International character encodings
-\usepackage{makeidx}
-\usepackage{lettrine}
-\usepackage{scrlayer-scrpage}
-\usepackage{pifont}
-\usepackage{enumitem}
-\usepackage{caption}
-\usepackage[maxlevel=3]{csquotes}
-\usepackage[export]{adjustbox}
-\usepackage{polyglossia}
-\usepackage{afterpage}
-\usepackage{microtype}
-\usepackage{tocbasic}
-\usepackage[pass]{geometry}
-\usepackage{setspace}
-\usepackage{subfiles}
-\usepackage[figuresright]{rotating}
-\usepackage[all]{nowidow}
-\usepackage{setspaceenhanced}
-\usepackage{ebgaramond} 
-\usepackage{epigraph}
-\usepackage{dialogue}
-\usepackage{ellipsis}
+
+\usepackage{bindery}
+\usepackage{dropcaps}
+\usepackage{illustrations}
+\usepackage{artheadings}
+
+
+%\usepackage{epigraph}
 \usepackage{verse}
-\usepackage{floatpag}
-\usepackage{rotating}
-\usepackage{pdfpages}
-\usepackage{wrapfig}
 
-\MakeAutoQuote{»}{«}
-\catcode`\—=13
-%\protected\def—{\allowbreak\textemdash\allowbreak}
-\protected\def—{\textemdash}
-\newcommand\longdash{\mbox{---\,}\ignorespaces{}}
 
-\setmainfont{EB Garamond}
-\setdefaultlanguage[variant=uk]{english}
-\floatpagestyle{empty}
-\rotfloatpagestyle{empty}
 
-\newcommand{\moderatelyhuge}{\fontsize{40}{50}\selectfont}
-\newcommand{\reasonablyhuge}{\fontsize{30}{40}\selectfont}
-\newfontfamily\chapterfont{EB Garamond}
-\newfontfamily\lettrinefont{ImperatorPlaque.ttf}
-\renewcommand{\LettrineFontHook}{\fontspec{ImperatorPlaque.ttf}}
+
+\setdropcaps{ImperatorPlaque.ttf}
 \newfontfamily\mytitlefont{AMERIKA.ttf}
-\newfontfamily\mychapterfont{EB Garamond}
-
-\makeatletter
-\@ifclasswith{scrbook}{a5paper}
-{%
-  \def\tailpiecesize{0.7\linewidth}
-  \def\coversize{0.8\textwidth}
-  \newcommand{\HUGE}{\fontsize{50}{60}\selectfont}
-}{%
-  \def\tailpiecesize{.7\linewidth}
-  \def\coversize{\textwidth}
-  \newcommand{\HUGE}{\fontsize{60}{70}\selectfont}
-}
-\makeatother
+\renewfontfamily\chapterfont{AMERIKA.ttf}
 
 \renewcommand{\partname}{Book}
-\setkomafont{chapter}{\chapterfont\Huge}
-\addtokomafont{disposition}{\normalfont}
-%\setkomafont{part}{\chapterfont\HUGE\bfseries}
-%\addtokomafont{partnumber}{\chapterfont\moderatelyhuge}
-%\renewcommand*{\partformat}{\partname~\thepart} %renew so it doesn't have the trailing period
 \renewcommand*{\chapterformat}{\chaptername~\thechapter}
-%\RedeclareSectionCommand[
-%  beforeskip=0pt,
-%  afterindent=false% <- added
-%  ]{chapter}
-
-\renewcommand*{\chapterheadendvskip}{\vspace{5cm}}
-\renewcommand*{\chapterheadstartvskip}{\vspace{0cm}}
-\newcommand*\hideentrynumber[1]{}
-\makeatletter
-\NewDocumentCommand\ArtPart{som}{%
-  \cleardoubleevenpage
-  \IfBooleanTF{#1}{% star version: no TOC entry or page header
-  }{%
-    \refstepcounter{part}%
-    \IfValueTF{#2}{% optional argument: Use for TOC entry and page header
-      \addparttocentry{\thepart}{#2}%
-      \partmark{#2}%
-    }{}%
-  }%
-  \noindent\includegraphics[width=\textwidth]{#3}%
-  \par\nobreak
-  \@afterindentfalse% don't indent first paragraph after the heading
-  \@afterheading% don't allow page break here etc.
-  \thispagestyle{plain}
-}
-\NewDocumentCommand\ArtChapter{som}{%
-  \cleardoubleoddpage
-  \IfBooleanTF{#1}{% star version: no TOC entry or page header
-  }{%
-    \refstepcounter{chapter}%
-    \IfValueTF{#2}{% optional argument: Use for TOC entry and page header
-      \addchaptertocentry{\thechapter}{#2}%
-      \chaptermark{#2}%
-    }{}%
-  }%
-  \noindent\includegraphics[width=\textwidth]{#3}%
-%  \captionof{figure}{Headpiece to Chapter \thechapter}
-  \par\nobreak
-  \@afterindentfalse% don't indent first paragraph after the heading
-  \@afterheading% don't allow page break here etc.
-  \thispagestyle{plain}
-}
-
-\makeatother
-
-\graphicspath{ {./images/} }
-\captionsetup[figure]{font=sc,labelformat=empty}
+\renewcommand*{\partformat}{\partname~\thepart}
 
 
-\newcount\zzc
-\makeatletter
-\def\zz{%
-\ifnum\prevgraf<\c@L@lines
-\zzc\z@
-\loop
-\ifnum\zzc<\prevgraf
-\advance\zzc\@ne
-\afterassignment\zzda\count@\L@parshape\relax
-\repeat
-\parshape\L@parshape
-\fi}
-\def\zzda{\afterassignment\zzdb\dimen@}
-\def\zzdb{\afterassignment\zzdef\dimen@}
-\def\zzdef#1\relax{\edef\L@parshape{\the\numexpr\count@-1\relax\space #1}}
-\makeatother
-
-%\renewcommand*{\partformat}{\partname \thepart\hspace*{1em}}
-%\newcommand*\hideentrynumber[1]{}
 \BeforeTOCHead[toc]{%
-%  \KOMAoptions{parskip=false}% no parskip in ToC
-%  \RedeclareSectionCommand[afterskip=1sp minus 1sp]{chapter}% no skip after ToC title
-\DeclareTOCStyleEntry[dynnumwidth=true,beforeskip=0.2cm,entryformat=\chapterfont,linefill=\TOCLineLeaderFill]{chapter}{chapter}
+\DeclareTOCStyleEntry[dynnumwidth=true,beforeskip=0.2cm,linefill=\TOCLineLeaderFill]{chapter}{chapter}
 \DeclareTOCStyleEntry[beforeskip=.3cm,dynnumwidth=true,entryformat=\Large\bfseries]{part}{part}
 }
 \DeclareTOCStyleEntry[beforeskip=.1cm,numwidth=-20pt,entrynumberformat=\hideentrynumber]{tocline}{figure}
 
-\headsep=10pt
-\headheight=45pt
-\footskip=30pt
 
-\defaultfontfeatures{Ligatures=TeX}
 \renewcommand{\thechapter}{\Roman{chapter}}
 
 \automark{chapter}
@@ -170,10 +41,6 @@ headings=big]{scrbook} % Document font size and paper size
 \rohead{\leftmark}
 \flushbottom
 
-
-\renewcommand*{\chapterheadendvskip}{\vspace{1cm}}
-\renewcommand*{\chapterheadstartvskip}{\vspace{0cm}}
-
 \hyphenation{}
 
 
@@ -182,56 +49,46 @@ headings=big]{scrbook} % Document font size and paper size
 
 \frontmatter
 
+\begin{titlepage}
+  \renewcommand{\HUGE}{\fontsize{60}{70}\selectfont}
+  \newcommand{\moderatelyhuge}{\fontsize{40}{50}\selectfont}
+	\begin{a4}
+	
+		\centering
+	   \vfill
+		\begin{tikzpicture}[remember picture, overlay]  
+			\node (frame) at ($(current page.north)+(0cm,-11cm)$) {\includegraphics[width=\textwidth]{painting}};
+			\node[anchor=center,align=center,text width=0.8\textwidth] (title) at ($(current page.north)+(0cm,-3.5cm)$) {\setstretch{1.8}\HUGE\mytitlefont The War\\ \vspace{0.5cm} {\setstretch{1.8}\moderatelyhuge of the}\vspace{0.2cm} Worlds};
+			\node[anchor=center,align=center,text width=0.8\textwidth] (author) at ($(current page.south)+(0cm,4.2cm)$) {\moderatelyhuge\mytitlefont H.G. Wells};
+			\node[anchor=center,align=center,text width=\textwidth] (illus) at ($(current page.south)+(0cm,1.8cm)$) {\setstretch{1.8}\Huge\mytitlefont Illustrated by\\ \vspace{0.3cm} Henrique Alvim Corrêa};
+		\end{tikzpicture}
+		\vfill
+	\end{a4}
 
-%\vspace{0.5\textheight}
-%\begin{center}\bfseries\Huge
-%The War of the Worlds
-%\end{center}
-%\vfill
-%\thispagestyle{empty}
-%\clearpage
+	\begin{letter}
+		\centering
+	   \vfill
+		\begin{tikzpicture}[remember picture, overlay]  
+			\node (frame) at ($(current page.north)+(0cm,-11.5cm)$) {\includegraphics[width=\textwidth]{painting}};
+			\node[anchor=center,align=center,text width=0.8\textwidth] (title) at ($(current page.north)+(0cm,-4cm)$) {\setstretch{1.8}\HUGE\mytitlefont The War\\ \vspace{0.5cm} {\setstretch{1.8}\moderatelyhuge of the}\vspace{0.2cm} Worlds};
+			\node[anchor=center,align=center,text width=0.8\textwidth] (author) at ($(current page.south)+(0cm,4.2cm)$) {\moderatelyhuge\mytitlefont H.G. Wells};
+			\node[anchor=center,align=center,text width=\textwidth] (illus) at ($(current page.south)+(0cm,2cm)$) {\setstretch{1.8}\Huge\mytitlefont Illustrated by\\ \vspace{0.2cm} Henrique Alvim Corrêa};
+		\end{tikzpicture}
+		\vfill
+	\end{letter}
 
-
-  \begin{titlepage}
-   \recalctypearea
- \newgeometry{left=10mm,right=10mm,top=7mm, bottom=7mm}
-
-  \begin{center}\setstretch{1.8}\mytitlefont
-{\setstretch{1.8}\HUGE The War}\\
-\vspace{0.5cm}
-{\setstretch{1.8}\moderatelyhuge of the}\\
-\vspace{0.2cm}
-{\HUGE Worlds}\\
-\vspace*{1cm}
-\includegraphics[width=\coversize]{painting}\\
- \end{center}
- \vspace*{0.1cm}
- \begin{center}\setstretch{1.5}\mytitlefont
-{\setstretch{1.5}\reasonablyhuge H. G. Wells}\\
-\vspace{0.5cm}
-{\setstretch{1.5}\Huge Illustrated by}
-\vspace{0.1cm}
-{\setstretch{1.5}\Huge Henrique Alvim Corrêa}
-\end{center}
-  \end{titlepage}
+\end{titlepage}	
 
 
-  \recalctypearea
-\restoregeometry
-
-\renewcommand*\raggedchapter{\centering}
+\pagestyle{plain}
 
 \KOMAoptions{headings=openleft}
 
 \tableofcontents
-\thispagestyle{plain}
-\clearpage
-%\renewcommand{\listfigurename}{List of Illustrations}
-%\listoffigures
-%\thispagestyle{plain}
+
 
 \mainmatter
-\pagestyle{headings}
+
 \renewcommand*{\chapterpagestyle}{plain}
                     
  \KOMAoptions{headings=openany}
@@ -243,9 +100,9 @@ But who shall dwell in these worlds if they be inhabited?\textellipsis Are we or
 
 \end{quote}
 \end{center}
-\thispagestyle{plain}
 \clearpage
 
+\pagestyle{headings}
 
 \KOMAoptions{headings=openleft}
 \ArtPart[The Coming of the Martians]{part1}
@@ -270,7 +127,6 @@ But who shall dwell in these worlds if they be inhabited?\textellipsis Are we or
 \include{chapters/17.tex}
 
 \addtocontents{toc}{\protect\newpage}
-%\addtocontents{toc}{\protect\vspace{1.5cm}}
 \KOMAoptions{headings=openleft}
 \ArtPart[The Earth Under the Martians]{part2}
 \KOMAoptions{headings=openright}
@@ -291,32 +147,34 @@ But who shall dwell in these worlds if they be inhabited?\textellipsis Are we or
 \clearpage
 \KOMAoptions{headings=openleft}
 \chapter*{Colophon}
-\begin{center}
-EB Garamond is Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. This digital version reproduces the original design by Claude Garamont closely: the source for the letterforms is a scan of a specimen known as the \enquote{Berner specimen,} which was composed in 1592 by Conrad Berner, the son-in-law of Christian Egenolff and his successor at the Egenolff print office.  \\github.com/georgd/EB-Garamond
+\centering
+\vfill
+\vfill
+\begin{minipage}{\textwidth}
+\textit{The War of the Worlds} (Herbert George »H.G.« Wells, 1866\textendash1946) was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published as a standalone work by William Heinemann (in the UK) and Harper \& Bros. (in the US). Illustrations by Brazilian artist Henrique Alvim Corrêa (1876\textendash1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co., in Brussels (Belgium).
+\end{minipage}
+\vfill
+gutenberg.org/ebooks/36
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill
-Chapter dropcaps are set in »Imperator Plaque«, by Paul Lloyd.\\moorstation.org/typoasis/designers/lloyd/
+\begin{minipage}{\textwidth}
+Text and chapter headings are set in »EB Garamond«, Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. This digital version reproduces the original design by Claude Garamont closely: the source for the letterforms is a scan of a specimen known as the \enquote{Berner specimen,} which was composed in 1592 by Conrad Berner, the son-in-law of Christian Egenolff and his successor at the Egenolff print office. Chapter dropcaps are set in »Imperator Plaque«, by Paul Lloyd. Title page and part headings are set in »Amerika«, by Apostrophic Labs.
+\end{minipage}
+\vfill
+github.com/georgd/EB-Garamond\\
+moorstation.org/typoasis/designers/lloyd/\\
+moorstation.org/typoasis/designers/lab/
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill
-Title page is set in »Amerika«, by Apostrophic Labs.\\moorstation.org/typoasis/designers/lab/
-\vfill
-\rule{0.5\textwidth}{.4pt}
-\vfill
-\textit{The War of the Worlds} (Herbert George »H.G.« Wells, 1866\textendash1946) was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published in hardback by William Heinemann (in the UK) and Harper \& Bros. (in the US). 
-\vfill
-\rule{0.5\textwidth}{.4pt}
-\vfill
-Illustrations by Brazilian artist Henrique Alvim Corrêa (1876\textendash1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co, in Brussels (Belgium).
-\vfill
-\rule{0.5\textwidth}{.4pt}
-\vfill
+\begin{minipage}{\textwidth}
 This typeset is dedicated to the public domain under a Creative Commons CC0 1.0 Universal deed: creativecommons.org/publicdomain/zero/1.0/
+\end{minipage}
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill
 Typeset in \LaTeX{}. Last revised \today.
-\end{center}
+
 \thispagestyle{empty}
 \end{document}

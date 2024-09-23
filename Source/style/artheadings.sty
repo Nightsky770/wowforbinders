@@ -1,0 +1,39 @@
+
+\makeatletter
+\NewDocumentCommand\ArtPart{som}{%
+  \cleardoubleevenpage
+  \IfBooleanTF{#1}{% star version: no TOC entry or page header
+  }{%
+    \refstepcounter{part}%
+    \IfValueTF{#2}{% optional argument: Use for TOC entry and page header
+      \addparttocentry{\thepart.}{#2}%
+      \partmark{#2}%
+    }{}%
+  }%
+  \noindent\includegraphics[width=\textwidth]{#3}%
+  \par\nobreak
+  \@afterindentfalse% don't indent first paragraph after the heading
+  \@afterheading% don't allow page break here etc.
+  \thispagestyle{plain}
+}
+\NewDocumentCommand\ArtChapter{som}{%
+  \cleardoubleoddpage
+  \IfBooleanTF{#1}{% star version: no TOC entry or page header
+  }{%
+    \refstepcounter{chapter}%
+    \IfValueTF{#2}{% optional argument: Use for TOC entry and page header
+      \addchaptertocentry{\thechapter}{#2}%
+      \chaptermark{#2}%
+    }{}%
+  }%
+  \noindent\includegraphics[width=\textwidth]{#3}%
+%  \par\nobreak
+\vspace{0pt}
+  \@afterindentfalse% don't indent first paragraph after the heading
+  \@afterheading% don't allow page break here etc.
+  \thispagestyle{plain}
+}
+
+\renewcommand*{\chaptermarkformat}{} %don't mark chapters; we have art for that
+\renewcommand*{\chapterheadstartvskip}{\vspace{0cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{0cm}}

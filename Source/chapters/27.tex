@@ -40,22 +40,21 @@ I go to London and see the busy multitudes in Fleet Street and the Strand, and i
 
 And strangest of all is it to hold my wife's hand again, and to think that I have counted her, and that she has counted me, among the dead.
 
-\makeatletter
-\@ifclasswith{scrbook}{a5paper}
-{%
-	\begin{figure}[bh!]
-		\centering
-		\includegraphics[width=.45\textwidth]{27tailpiece}
-		%\captionlistentry{Tailpiece to Chapter \thechapter}
-	\end{figure}
-	\enlargethispage{2\baselineskip}
-}{%
-	\begin{figure}[bh!]
-		\centering
-		\includegraphics[width=.55\textwidth]{27tailpiece}
-		%\captionlistentry{Tailpiece to Chapter \thechapter}
-	\end{figure}
-	\enlargethispage{2\baselineskip}
-}
-\makeatother
+
+		
+\begin{a4}
+	\begin{tikzpicture}[remember picture, overlay]  
+		\node (theend) at ($(current page.south)+(0cm,5cm)$) {\includegraphics[width=.5\textwidth]{27tailpiece}};
+	\end{tikzpicture}
+	
+
+\end{a4}
+
+\begin{letter}
+	
+	\begin{tikzpicture}[remember picture, overlay]  
+		\node (theend) at ($(current page.south)+(0cm,6cm)$) {\includegraphics[width=.6\textwidth]{27tailpiece}};
+	\end{tikzpicture}
+
+\end{letter}
 
