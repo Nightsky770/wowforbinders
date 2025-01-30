@@ -22,11 +22,18 @@ The storm burst upon us six years ago now. As Mars approached opposition, Lavell
 
 % \includepdf[width=1.1\textwidth]{1spectroscope.png}
  
-\begin{figure}[tbhp]
-\centering
-\includegraphics[width=\linewidth]{1spectroscope}
-\caption[The spectroscope indicated a mass of flaming gas]{The spectroscope indicated a mass of flaming gas moving with an enormous velocity towards this earth}
-\end{figure}
+% \begin{figure}[tbhp]
+% \centering
+% \includegraphics[width=\linewidth]{1spectroscope}
+% \caption[The spectroscope indicated a mass of flaming gas]{The spectroscope indicated a mass of flaming gas moving with an enormous velocity towards this earth}
+% \end{figure}
+
+\begin{bwbigpic}
+	[1.2] 
+	{1spectroscope} 
+	{The spectroscope indicated a mass of flaming gas moving with an enormous velocity towards this earth} 
+	[The spectroscope indicated a mass of flaming gas]
+\end{bwbigpic}
 
 A singularly appropriate phrase it proved. Yet the next day there was nothing of this in the papers except a little note in the \textit{Daily Telegraph}, and the world went in ignorance of one of the gravest dangers that ever threatened the human race. I might not have heard of the eruption at all had I not met Ogilvy, the well-known astronomer, at Ottershaw. He was immensely excited at the news, and in the excess of his feelings invited me up to take a turn with him that night in a scrutiny of the red planet.
 
@@ -50,8 +57,24 @@ Even the daily papers woke up to the disturbances at last, and popular notes app
 
 One night (the first missile then could scarcely have been 10,000,000 miles away) I went for a walk with my wife. It was starlight and I explained the Signs of the Zodiac to her, and pointed out Mars, a bright dot of light creeping zenithward, towards which so many telescopes were pointed. It was a warm night. Coming home, a party of excursionists from Chertsey or Isleworth passed us singing and playing music. There were lights in the upper windows of the houses as the people went to bed. From the railway station in the distance came the sound of shunting trains, ringing and rumbling, softened almost into melody by the distance. My wife pointed out to me the brightness of the red, green, and yellow signal lights hanging in a framework against the sky. It seemed so safe and tranquil.
 
-\begin{figure}[b!]
-\centering
-\includegraphics[width=0.7\textwidth]{1tailpiece}
-%\captionlistentry{Tailpiece to Chapter \thechapter}
-\end{figure}
+% \begin{figure}[b!]
+% \centering
+% \includegraphics[width=0.7\textwidth]{1tailpiece}
+% %\captionlistentry{Tailpiece to Chapter \thechapter}
+% \end{figure}
+
+
+\begin{letter}
+	\begin{tikzpicture}[remember picture, overlay]  
+		\node (theend) at ($(current page.south)+(0cm,3.5cm)$) {\includegraphics[width=0.7\textwidth]{1tailpiece}};
+	\end{tikzpicture}
+
+\end{letter}
+
+\begin{a4}
+	
+	\begin{tikzpicture}[remember picture, overlay]  
+		\node (theend) at ($(current page.south)+(0cm,6cm)$) {\includegraphics[width=0.7\textwidth]{1tailpiece}};
+	\end{tikzpicture}
+
+\end{a4}

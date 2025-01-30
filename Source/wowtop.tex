@@ -10,13 +10,22 @@ a5paper,
 \usepackage{artheadings}
 
 
-%\usepackage{epigraph}
-\usepackage{verse}
 
+\makeatletter
+\@ifundefined{ifpictures}{\newif\ifpictures}{}
+\makeatother
+\picturestrue
+%\picturesfalse
 
+\ifpictures
+    \includecomment{pictures}
+    \excludecomment{placeholder}
+\else
+    \excludecomment{pictures}
+    \includecomment{placeholder}
+\fi
 
-
-\setdropcaps{ImperatorPlaque.ttf}
+\setdropcaps{Mosaic_i.ttf}
 \newfontfamily\mytitlefont{AMERIKA.ttf}
 \renewfontfamily\chapterfont{AMERIKA.ttf}
 
@@ -29,7 +38,16 @@ a5paper,
 \DeclareTOCStyleEntry[dynnumwidth=true,beforeskip=0.2cm,linefill=\TOCLineLeaderFill]{chapter}{chapter}
 \DeclareTOCStyleEntry[beforeskip=.3cm,dynnumwidth=true,entryformat=\Large\bfseries]{part}{part}
 }
-\DeclareTOCStyleEntry[beforeskip=.1cm,numwidth=-20pt,entrynumberformat=\hideentrynumber]{tocline}{figure}
+
+
+\DeclareTOCStyleEntry[
+    beforeskip=.1cm,
+  %  indent=20pt,  % Adjust this value to match your other entries
+ %   numwidth=0pt,
+    entrynumberformat=\hideentrynumber,
+    linefill=\TOCLineLeaderFill
+]{tocline}{figure}
+
 
 
 \renewcommand{\thechapter}{\Roman{chapter}}
@@ -43,41 +61,12 @@ a5paper,
 
 \hyphenation{}
 
-
+%\DeclareEmphSequence{\itshape,\upshape}
 \begin{document}
 
 
 \frontmatter
-
-\begin{titlepage}
-  \renewcommand{\HUGE}{\fontsize{60}{70}\selectfont}
-  \newcommand{\moderatelyhuge}{\fontsize{40}{50}\selectfont}
-	\begin{a4}
-	
-		\centering
-	   \vfill
-		\begin{tikzpicture}[remember picture, overlay]  
-			\node (frame) at ($(current page.north)+(0cm,-11cm)$) {\includegraphics[width=\textwidth]{painting}};
-			\node[anchor=center,align=center,text width=0.8\textwidth] (title) at ($(current page.north)+(0cm,-3.5cm)$) {\setstretch{1.8}\HUGE\mytitlefont The War\\ \vspace{0.5cm} {\setstretch{1.8}\moderatelyhuge of the}\vspace{0.2cm} Worlds};
-			\node[anchor=center,align=center,text width=0.8\textwidth] (author) at ($(current page.south)+(0cm,4.2cm)$) {\moderatelyhuge\mytitlefont H.G. Wells};
-			\node[anchor=center,align=center,text width=\textwidth] (illus) at ($(current page.south)+(0cm,1.8cm)$) {\setstretch{1.8}\Huge\mytitlefont Illustrated by\\ \vspace{0.3cm} Henrique Alvim Corrêa};
-		\end{tikzpicture}
-		\vfill
-	\end{a4}
-
-	\begin{letter}
-		\centering
-	   \vfill
-		\begin{tikzpicture}[remember picture, overlay]  
-			\node (frame) at ($(current page.north)+(0cm,-11.5cm)$) {\includegraphics[width=\textwidth]{painting}};
-			\node[anchor=center,align=center,text width=0.8\textwidth] (title) at ($(current page.north)+(0cm,-4cm)$) {\setstretch{1.8}\HUGE\mytitlefont The War\\ \vspace{0.5cm} {\setstretch{1.8}\moderatelyhuge of the}\vspace{0.2cm} Worlds};
-			\node[anchor=center,align=center,text width=0.8\textwidth] (author) at ($(current page.south)+(0cm,4.2cm)$) {\moderatelyhuge\mytitlefont H.G. Wells};
-			\node[anchor=center,align=center,text width=\textwidth] (illus) at ($(current page.south)+(0cm,2cm)$) {\setstretch{1.8}\Huge\mytitlefont Illustrated by\\ \vspace{0.2cm} Henrique Alvim Corrêa};
-		\end{tikzpicture}
-		\vfill
-	\end{letter}
-
-\end{titlepage}	
+\includepdf[width=1.3\textwidth]{titlepage.jpg}
 
 
 \pagestyle{plain}
@@ -85,6 +74,9 @@ a5paper,
 \KOMAoptions{headings=openleft}
 
 \tableofcontents
+
+%\renewcommand{\listfigurename}{List of Illustrations}
+%\listoffigures
 
 
 \mainmatter
@@ -100,6 +92,7 @@ But who shall dwell in these worlds if they be inhabited?\textellipsis Are we or
 
 \end{quote}
 \end{center}
+\thispagestyle{empty}
 \clearpage
 
 \pagestyle{headings}
@@ -142,16 +135,20 @@ But who shall dwell in these worlds if they be inhabited?\textellipsis Are we or
 \include{chapters/26.tex}
 \include{chapters/27.tex}
 
-
-
-\clearpage
+%
+%\backmatter
 \KOMAoptions{headings=openleft}
+%\include{chapters/landingsites.tex}
+%\include{chapters/journey.tex}
+%\include{chapters/brosjourney1.tex}
+%\include{chapters/brosjourney2.tex}
+
 \chapter*{Colophon}
 \centering
 \vfill
 \vfill
 \begin{minipage}{\textwidth}
-\textit{The War of the Worlds} (Herbert George »H.G.« Wells, 1866\textendash1946) was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published as a standalone work by William Heinemann (in the UK) and Harper \& Bros. (in the US). Illustrations by Brazilian artist Henrique Alvim Corrêa (1876\textendash1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L. Vandamme \& Co., in Brussels (Belgium).
+\textit{The War of the Worlds} (Herbert George »H.G.« Wells, 1866\textendash1946) was serialised in \textit{Pearson's Magazine} (in the UK) and \textit{Cosmopolitan} magazine (in the US) in 1897. In 1898, it was published as a standalone work by William Heinemann (in the UK) and Harper \& Bros. (in the US). 
 \end{minipage}
 \vfill
 gutenberg.org/ebooks/36
@@ -159,12 +156,24 @@ gutenberg.org/ebooks/36
 \rule{0.5\textwidth}{.4pt}
 \vfill
 \begin{minipage}{\textwidth}
-Text and chapter headings are set in »EB Garamond«, Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. This digital version reproduces the original design by Claude Garamont closely: the source for the letterforms is a scan of a specimen known as the \enquote{Berner specimen,} which was composed in 1592 by Conrad Berner, the son-in-law of Christian Egenolff and his successor at the Egenolff print office. Chapter dropcaps are set in »Imperator Plaque«, by Paul Lloyd. Title page and part headings are set in »Amerika«, by Apostrophic Labs.
+Illustrations by Brazilian artist Henrique Alvim Corrêa (1876\textendash1910) are from the first French edition: \textit{La guerre des mondes}, translated by Henry Durand-Davray and published in 1906 by L.~Vandamme \& Co., in Brussels (Belgium).
+\end{minipage}
+\vfill
+\rule{0.5\textwidth}{.4pt}
+\vfill
+\begin{minipage}{\textwidth}
+Text is set in »EB Garamond«, Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century.  Chapter dropcaps are set in »Mosaic Initials«, by Paul Lloyd. Title page, chapter headings, and part headings are set in »Amerika«, by Apostrophic Labs.
 \end{minipage}
 \vfill
 github.com/georgd/EB-Garamond\\
 moorstation.org/typoasis/designers/lloyd/\\
 moorstation.org/typoasis/designers/lab/
+%\vfill
+%\rule{0.5\textwidth}{.4pt}
+%\vfill
+%\begin{minipage}{\textwidth}
+%%Maps used are »Outer London«, by Edward Stanford, first published in \textit{Stanford's London Atlas of Universal Geography Exhibiting the Physical and Political Divisions of the Various Countries of the World} (1901); and »The Home Counties \& the East of England«, published in the 1908 edition of \textit{The Harmsworth Atlas and Gazetter}.
+%\end{minipage}
 \vfill
 \rule{0.5\textwidth}{.4pt}
 \vfill

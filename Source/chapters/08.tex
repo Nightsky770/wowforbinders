@@ -30,15 +30,37 @@ About eleven a company of soldiers came through Horsell, and deployed along the 
 
 
 
-A few seconds after midnight the crowd in the Chertsey road, Woking, saw a star fall from heaven into the pine woods to the northwest. It had a greenish colour, and caused a silent brightness like summer lightning. This was the second cylinder.
+A few seconds after midnight the crowd in the Chertsey road, Woking, saw a star fall from heaven into the pine woods to the northwest. It had a greenish colour, and caused a silent brightness like summer lightning. This was the second cylinder. \label{cylinder2a}
+% \vspace{2em}
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=1.1\textwidth]{8sleepless}
+% \caption{All night long the Martians were at work}
+% \end{figure}
 
-\begin{figure}[tbph]
-\centering
-\includegraphics[width=\textwidth]{8sleepless}
-\caption{All night long the Martians were at work}
-\end{figure}
 
-%\begin{figure}[b!]
-%\centering
-%\includegraphics[width=\tailpiecesize]{8tailpiece}\captionlistentry{Tailpiece to Chapter \thechapter}
-%\end{figure}
+\begin{pictures} 
+	\begin{letter}
+%		\clearpage
+		\begin{tikzpicture}[remember picture, overlay]
+			\node (img) at ($(current page.south)+(0cm,10cm)$) {\includegraphics[width=1.1\textwidth]{8sleepless}};
+			\node[text width=\textwidth, align=center] (caption) at ($(current page.south)+(0cm,3cm)$) {\textsc{All night long the Martians were at work}};
+
+		\end{tikzpicture}
+%		\thispagestyle{empty}
+		\addxcontentsline{lof}{figure}{All night long the Martians were at work}
+		\clearpage
+	\end{letter}
+	
+	\begin{a4}
+%		\clearpage
+		\begin{tikzpicture}[remember picture, overlay]
+			\node (img) at ($(current page.south)+(0cm,10cm)$) {\includegraphics[width=1.1\textwidth]{8sleepless}};
+			\node[text width=\textwidth, align=center] (caption) at ($(current page.south)+(0cm,3cm)$) {\textsc{All night long the Martians were at work}};
+
+		\end{tikzpicture}
+%		\thispagestyle{empty}
+		\addxcontentsline{lof}{figure}{All night long the Martians were at work}
+		\clearpage
+	\end{a4}
+\end{pictures}

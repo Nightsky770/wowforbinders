@@ -12,11 +12,17 @@ Most of the spectators had gathered in one or two groups—one a little crowd to
 
 »Did you see a man in the pit?« I said; but he made no answer to that. We became silent, and stood watching for a time side by side, deriving, I fancy, a certain comfort in one another's company. Then I shifted my position to a little knoll that gave me the advantage of a yard or more of elevation and when I looked for him presently he was walking towards Woking.
 
-\begin{figure}[tbh!]
-	\centering
-	\includegraphics[width=\linewidth]{5heatray}
-	\caption{This invisible, inevitable sword of heat}
-\end{figure}
+% \begin{figure}[tbh!]
+	% \centering
+	% \includegraphics[width=\linewidth]{5heatray}
+	% \caption{This invisible, inevitable sword of heat}
+% \end{figure}
+
+\begin{bwbigpic}
+	[1.2] 
+	{5heatray} 
+	{This invisible, inevitable sword of heat} 
+\end{bwbigpic}
 
 The sunset faded to twilight before anything further happened. The crowd far away on the left, towards Woking, seemed to grow, and I heard now a faint murmur from it. The little knot of people towards Chobham dispersed. There was scarcely an intimation of movement from the pit.
 
@@ -42,10 +48,12 @@ Beyond the pit stood the little wedge of people with the white flag at its apex,
 
 Forthwith flashes of actual flame, a bright glare leaping from one to another, sprang from the scattered group of men. It was as if some invisible jet impinged upon them and flashed into white flame. It was as if each man were suddenly and momentarily turned to fire.
 
-\begin{sidewaysfigure}
-	\includegraphics[width=.9\columnwidth]{5invisiblejet}%
-\caption[Flashed into white flame]{As if some invisible jet impinged upon them and flashed into white flame}
-\end{sidewaysfigure}
+% \begin{sidewaysfigure}
+	% \includegraphics[width=\columnwidth]{5invisiblejet}%
+% \caption[Flashed into white flame]{As if some invisible jet impinged upon them and flashed into white flame}
+% \end{sidewaysfigure}
+
+
 
 Then, by the light of their own destruction, I saw them staggering and falling, and their supporters turning to run.
 
@@ -63,7 +71,39 @@ Nothing was changed save for that and a terrible astonishment. The little group 
 
 It came to me that I was upon this dark common, helpless, unprotected, and alone. Suddenly, like a thing falling upon me from without, came—fear.
 
+
+\begin{pictures} %As if some invisible jet impinged upon them (letter)
+	\begin{letter}
+		\clearpage
+		\begin{tikzpicture}[remember picture, overlay]
+			\node (img) at ($(current page.center)+(0.5cm,0cm)$) {\includegraphics[width=1.15\columnwidth]{5invisiblejet}};
+			\node[rotate=-90, text width=\textwidth, align=center] (caption) at ($(current page.west)+(1cm,0cm)$) {\textsc{As if some invisible jet impinged upon them}};
+
+		\end{tikzpicture}
+		\thispagestyle{empty}
+		\addxcontentsline{lof}{figure}{As if some invisible jet impinged upon them}
+		\clearpage
+	\end{letter}
+\end{pictures}
+
+
+
 With an effort I turned and began a stumbling run through the heather.
+
+
+\begin{pictures} %As if some invisible jet impinged upon them (a4)
+	\begin{a4}
+		\clearpage
+		\begin{tikzpicture}[remember picture, overlay]
+			\node (img) at ($(current page.center)+(0.5cm,0cm)$) {\includegraphics[width=1.15\columnwidth]{5invisiblejet}};
+			\node[rotate=-90, text width=\textwidth, align=center] (caption) at ($(current page.west)+(1cm,0cm)$) {\textsc{As if some invisible jet impinged upon them}};
+
+		\end{tikzpicture}
+		\thispagestyle{empty}
+		\addxcontentsline{lof}{figure}{As if some invisible jet impinged upon them}
+		\clearpage
+	\end{a4}
+\end{pictures}
 
 The fear I felt was no rational fear, but a panic terror not only of the Martians, but of the dusk and stillness all about me. Such an extraordinary effect in unmanning me it had that I ran weeping silently as a child might do. Once I had turned, I did not dare to look back.
 
